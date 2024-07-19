@@ -14,7 +14,7 @@ def predict_class(image_tensor, model):
     """
 
     with torch.no_grad():
-        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        device = torch.device("cpu")
         output = model(image_tensor.to(device))
         probabilities = torch.softmax(output, dim=1)
         predicted_class_index = torch.argmax(probabilities, dim=1).item()

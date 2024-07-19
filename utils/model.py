@@ -17,7 +17,7 @@ class EffNet(nn.Module):
         return out
 
 def load_model():
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     net = EffNet(n_classes=2).to(device)
     model_path = os.path.join(os.path.dirname(__file__), 'models', 'modelo_galaxias.pth')
     net.load_state_dict(torch.load(model_path))  # Adjust path if needed
