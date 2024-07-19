@@ -20,6 +20,6 @@ def load_model():
     device = torch.device("cpu")
     net = EffNet(n_classes=2).to(device)
     model_path = os.path.join(os.path.dirname(__file__), 'models', 'modelo_galaxias.pth')
-    net.load_state_dict(torch.load(model_path))  # Adjust path if needed
+    net.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))  # Adjust path if needed
     net.eval()
     return net
